@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="쇼핑특가, 핫딜, 쿠폰 정보의 중심 - 뽐뿌. 네이버쇼핑, 지마켓, 쿠팡, 옥션 등 최저가 정보와 각종 이벤트를 함께 공유하는 커뮤니티입니다.">
+    <meta name="keywords" content="뽐뿌,ppomppu,핫딜,쇼핑정보,공동구매,최저가,할인,쿠폰">
+    <meta name="author" content="PPOMPPU CO.">
+    <meta name="theme-color" content="#FF6B35">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="뽐뿌 - 사람이 좋아 함께하는 곳">
+    <meta property="og:description" content="쇼핑특가, 휴대폰 정보의 중심지 뽐뿌">
+    <meta property="og:image" content="https://img.ppomppu.co.kr/images/og_image.png">
+    <meta property="og:site_name" content="뽐뿌">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.ppomppu.co.kr">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="뽐뿌">
+    <meta name="twitter:description" content="사람이 좋아 함께하는 쇼핑 커뮤니티">
+
+    <!-- Favicon & Touch Icon -->
+    <link rel="shortcut icon" href="https://img.ppomppu.co.kr/favicon.ico">
+    <link rel="apple-touch-icon" href="https://img.ppomppu.co.kr/images/app_icon_180.png">
+
+    <title>뽐뿌 - 사람이 좋아 함께하는 곳</title>
+
+    <!-- Inline Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --color-primary: #FF6B35;
+            --color-primary-dark: #E85A2A;
+            --color-text: #222;
+            --color-text-light: #666;
+            --color-bg: #fff;
+            --color-bg-light: #f5f5f5;
+            --color-border: #ddd;
+            --spacing-md: 16px;
+            --spacing-lg: 24px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+            color: var(--color-text);
+            background-color: var(--color-bg);
+            line-height: 1.6;
+        }
+
+        a {
+            color: var(--color-primary);
+            text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+    </style>
+
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="styles_modern.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="styles_modern.css"></noscript>
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" as="style" href="styles_modern.css">
+    <link rel="preconnect" href="https://cdn2.ppomppu.co.kr">
+    <link rel="preconnect" href="https://img.ppomppu.co.kr">
+
+    <!-- Analytics -->
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-641CFJ8BV0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-641CFJ8BV0', { 'cookieDomain': 'ppomppu.co.kr' });
+    </script>
+</head>
+<body>
+    <!-- Skip to Main Content -->
+    <a href="#main-content" class="skip-link">메인 콘텐츠로 바로가기</a>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="header-container">
+            <div class="logo">
+                <h1><a href="/">뽐뿌</a></h1>
+            </div>
+
+            <nav class="main-nav">
+                <button class="nav-toggle" id="navToggle" aria-label="메뉴 열기/닫기">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <ul class="nav-list">
+                    <li><a href="/zboard/zboard.php?id=hotdeal">핫딜</a></li>
+                    <li><a href="/zboard/zboard.php?id=coupon">쿠폰</a></li>
+                    <li><a href="/zboard/zboard.php?id=shopping">쇼핑</a></li>
+                    <li><a href="/zboard/zboard.php?id=review">후기</a></li>
+                </ul>
+            </nav>
+
+            <form class="search-form" id="searchForm" role="search">
+                <input
+                    type="search"
+                    class="search-input"
+                    id="searchInput"
+                    placeholder="검색어를 입력하세요"
+                    aria-label="사이트 검색">
+                <button type="submit" class="search-btn" aria-label="검색">🔍</button>
+            </form>
+
+            <div class="user-menu">
+                <a href="/member/login.php" class="btn btn-text">로그인</a>
+                <a href="/member/join.php" class="btn btn-primary">회원가입</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <div class="page-container">
+            <!-- Left Sidebar: Categories -->
+            <aside class="sidebar-left" aria-label="카테고리 네비게이션">
+                <section class="widget widget-categories">
+                    <h2 class="widget-title">인기 게시판</h2>
+                    <ul class="category-list">
+                        <li><a href="/zboard/zboard.php?id=hotdeal" class="category-link active">🔥 핫딜</a></li>
+                        <li><a href="/zboard/zboard.php?id=coupon" class="category-link">🎟️ 쿠폰</a></li>
+                        <li><a href="/zboard/zboard.php?id=shopping" class="category-link">🛒 쇼핑</a></li>
+                        <li><a href="/zboard/zboard.php?id=review" class="category-link">⭐ 후기</a></li>
+                        <li><a href="/zboard/zboard.php?id=health" class="category-link">🏥 건강</a></li>
+                        <li><a href="/zboard/zboard.php?id=stock" class="category-link">📈 재테크</a></li>
+                        <li><a href="/zboard/zboard.php?id=pet" class="category-link">🐕 반려동물</a></li>
+                    </ul>
+                </section>
+            </aside>
+
+            <!-- Main Content Area -->
+            <article class="main-content">
+                <!-- Featured Section -->
+                <section class="featured-section">
+                    <h2 class="section-title">추천 게시글</h2>
+                    <div class="carousel" id="featuredCarousel" role="region" aria-label="추천 게시글 캐러셀">
+                        <div class="carousel-inner">
+                            <div class="carousel-item">
+                                <a href="/zboard/view.php?id=hotdeal&no=123456" class="featured-card">
+                                    <div class="featured-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                                        🎁
+                                    </div>
+                                    <div class="featured-content">
+                                        <h3>쿠팡 와우 멤버십 특가</h3>
+                                        <p class="featured-meta">추천 2.5K | 댓글 456</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="/zboard/view.php?id=hotdeal&no=123457" class="featured-card">
+                                    <div class="featured-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                                        👟
+                                    </div>
+                                    <div class="featured-content">
+                                        <h3>나이키 에어맥스 50% 할인</h3>
+                                        <p class="featured-meta">추천 1.8K | 댓글 234</p>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="carousel-item">
+                                <a href="/zboard/view.php?id=hotdeal&no=123458" class="featured-card">
+                                    <div class="featured-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                                        💻
+                                    </div>
+                                    <div class="featured-content">
+                                        <h3>MacBook Air M3 특가 판매</h3>
+                                        <p class="featured-meta">추천 3.2K | 댓글 567</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <button class="carousel-control prev" id="prevBtn" aria-label="이전 슬라이드">←</button>
+                        <button class="carousel-control next" id="nextBtn" aria-label="다음 슬라이드">→</button>
+                    </div>
+                </section>
+
+                <!-- Recent Posts Grid -->
+                <section class="posts-section">
+                    <h2 class="section-title">최신 핫딜</h2>
+                    <div class="posts-grid" id="postsGrid">
+                        <!-- 게시글이 JavaScript로 동적으로 로드됨 -->
+                    </div>
+                </section>
+
+                <!-- More Posts Button -->
+                <div class="load-more-container">
+                    <button class="btn btn-secondary" id="loadMoreBtn">더보기</button>
+                </div>
+            </article>
+
+            <!-- Right Sidebar: Ads -->
+            <aside class="sidebar-right" aria-label="광고">
+                <div class="ad-container">
+                    <!-- Google Ad Manager Slot -->
+                    <div id="div-gpt-ad-right-banner" style="min-width: 160px; min-height: 600px;">
+                        <!-- Ad content will be loaded here -->
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>뽐뿌</h3>
+                <ul>
+                    <li><a href="/info/about.php">소개</a></li>
+                    <li><a href="/info/contact.php">문의</a></li>
+                    <li><a href="/info/partnership.php">제휴/광고</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>정책</h3>
+                <ul>
+                    <li><a href="/info/terms.php">이용약관</a></li>
+                    <li><a href="/info/privacy.php">개인정보처리방침</a></li>
+                    <li><a href="/info/policy.php">청소년보호정책</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>커뮤니티</h3>
+                <ul>
+                    <li><a href="/zboard/zboard.php?id=notice">공지사항</a></li>
+                    <li><a href="/zboard/zboard.php?id=propose">운영참여</a></li>
+                    <li><a href="/service/report.php">신고</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 PPOMPPU CO. All rights reserved.</p>
+            <p>Contact: <a href="mailto:info@ppomppu.co.kr">info@ppomppu.co.kr</a></p>
+        </div>
+    </footer>
+
+    <!-- Styles -->
+    <style>
+        /* Header Styles */
+        .header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: var(--color-bg);
+            border-bottom: 1px solid var(--color-border);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12);
+        }
+
+        .header-container {
+            display: grid;
+            grid-template-columns: auto 1fr auto auto auto;
+            gap: var(--spacing-md);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-md);
+            align-items: center;
+        }
+
+        .logo h1 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0;
+        }
+
+        .logo a {
+            color: var(--color-primary);
+        }
+
+        /* Navigation */
+        .main-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 8px;
+        }
+
+        .nav-toggle span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--color-text);
+            transition: all 0.3s ease;
+        }
+
+        .nav-list {
+            display: flex;
+            list-style: none;
+            gap: var(--spacing-lg);
+        }
+
+        .nav-list a {
+            font-weight: 600;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-list a:hover {
+            background-color: var(--color-bg-light);
+            color: var(--color-primary);
+        }
+
+        /* Search */
+        .search-form {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 8px 12px;
+            border: 1px solid var(--color-border);
+            border-radius: 4px 0 0 4px;
+            min-width: 200px;
+            font-size: 14px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 2px rgba(255, 107, 53, 0.2);
+        }
+
+        .search-btn {
+            padding: 8px 12px;
+            background-color: var(--color-primary);
+            color: white;
+            border-radius: 0 4px 4px 0;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .search-btn:hover {
+            background-color: var(--color-primary-dark);
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-dark);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-bg-light);
+            color: var(--color-text);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-border);
+        }
+
+        .btn-text {
+            background: none;
+            color: var(--color-text);
+        }
+
+        .btn-text:hover {
+            color: var(--color-primary);
+        }
+
+        /* Main Layout */
+        .page-container {
+            display: grid;
+            grid-template-columns: 200px 1fr 180px;
+            gap: var(--spacing-lg);
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: var(--spacing-lg);
+            min-height: calc(100vh - 200px);
+        }
+
+        /* Sidebar */
+        .sidebar-left,
+        .sidebar-right {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-lg);
+        }
+
+        .sidebar-left {
+            position: sticky;
+            top: 100px;
+            height: fit-content;
+        }
+
+        .widget {
+            background-color: var(--color-bg-light);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+        }
+
+        .widget-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-md);
+        }
+
+        .category-list {
+            list-style: none;
+        }
+
+        .category-link {
+            display: block;
+            padding: 8px 12px;
+            color: var(--color-text-light);
+            transition: all 0.3s ease;
+            border-radius: 4px;
+        }
+
+        .category-link:hover,
+        .category-link.active {
+            background-color: rgba(255, 107, 53, 0.1);
+            color: var(--color-primary);
+            font-weight: 600;
+        }
+
+        /* Featured Section */
+        .featured-section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .carousel-inner {
+            display: grid;
+            grid-auto-flow: column;
+            gap: var(--spacing-md);
+            scroll-behavior: smooth;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            scroll-snap-align: start;
+        }
+
+        .featured-card {
+            display: grid;
+            grid-template-columns: 200px 1fr;
+            height: 200px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+            background-color: var(--color-bg);
+        }
+
+        .featured-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .featured-image {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+        }
+
+        .featured-content {
+            padding: var(--spacing-md);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .featured-content h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .featured-meta {
+            font-size: 12px;
+            color: var(--color-text-light);
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 12px 16px;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 10;
+            transition: background-color 0.3s ease;
+        }
+
+        .carousel-control:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .carousel-control.prev {
+            left: 0;
+        }
+
+        .carousel-control.next {
+            right: 0;
+        }
+
+        /* Posts Grid */
+        .posts-section {
+            margin-bottom: var(--spacing-xl);
+        }
+
+        .posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: var(--spacing-lg);
+        }
+
+        .post-card {
+            background-color: var(--color-bg);
+            border: 1px solid var(--color-border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .post-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-2px);
+        }
+
+        .post-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 40px;
+        }
+
+        .post-body {
+            padding: var(--spacing-md);
+        }
+
+        .post-category {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--color-primary);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
+
+        .post-title {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            line-height: 1.4;
+        }
+
+        .post-excerpt {
+            font-size: 13px;
+            color: var(--color-text-light);
+            margin-bottom: var(--spacing-md);
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 12px;
+            color: var(--color-text-light);
+            padding-top: var(--spacing-md);
+            border-top: 1px solid var(--color-border);
+        }
+
+        /* Load More */
+        .load-more-container {
+            text-align: center;
+            margin: var(--spacing-xl) 0;
+        }
+
+        /* Right Sidebar */
+        .ad-container {
+            background-color: var(--color-bg-light);
+            border-radius: 8px;
+            padding: var(--spacing-md);
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--color-text-light);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--color-text);
+            color: white;
+            padding: var(--spacing-xl) var(--spacing-lg);
+            margin-top: var(--spacing-xl);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: var(--spacing-lg);
+            max-width: 1400px;
+            margin: 0 auto;
+            margin-bottom: var(--spacing-lg);
+        }
+
+        .footer-section h3 {
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section li {
+            margin-bottom: 6px;
+        }
+
+        .footer-section a {
+            color: rgba(255, 255, 255, 0.7);
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: var(--color-primary);
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: var(--spacing-lg);
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 12px;
+        }
+
+        /* Skip Link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background-color: var(--color-primary);
+            color: white;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 100;
+        }
+
+        .skip-link:focus {
+            top: 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .page-container {
+                grid-template-columns: 1fr 150px;
+            }
+
+            .sidebar-left {
+                display: none;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                grid-template-columns: auto 1fr auto;
+                gap: 8px;
+            }
+
+            .nav-toggle {
+                display: flex;
+            }
+
+            .nav-list {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                background-color: var(--color-bg);
+                border-bottom: 1px solid var(--color-border);
+                padding: var(--spacing-md);
+                z-index: 50;
+            }
+
+            .nav-list.active {
+                display: flex;
+            }
+
+            .page-container {
+                grid-template-columns: 1fr;
+                padding: 8px;
+            }
+
+            .sidebar-left,
+            .sidebar-right {
+                display: none;
+            }
+
+            .featured-card {
+                grid-template-columns: 100px 1fr;
+                height: 120px;
+            }
+
+            .featured-image {
+                font-size: 32px;
+            }
+
+            .posts-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-container {
+                grid-template-columns: auto 1fr;
+            }
+
+            .user-menu {
+                display: none;
+            }
+
+            .search-form {
+                grid-column: 1 / -1;
+            }
+        }
+    </style>
+
+    <!-- Scripts -->
+    <script>
+        /**
+         * Ppomppu Modern - Vanilla JavaScript
+         * jQuery 제거된 순수 JavaScript 구현
+         */
+
+        // ==========================================
+        // 1. Mobile Navigation
+        // ==========================================
+
+        const navToggle = document.getElementById('navToggle');
+        const navList = document.querySelector('.nav-list');
+
+        if (navToggle) {
+            navToggle.addEventListener('click', () => {
+                navList?.classList.toggle('active');
+            });
+        }
+
+        // ==========================================
+        // 2. Search Form
+        // ==========================================
+
+        const searchForm = document.getElementById('searchForm');
+        const searchInput = document.getElementById('searchInput');
+
+        if (searchForm) {
+            searchForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const query = searchInput.value.trim();
+                if (query) {
+                    window.location.href = `/zboard/search.php?query=${encodeURIComponent(query)}`;
+                }
+            });
+        }
+
+        // ==========================================
+        // 3. Carousel
+        // ==========================================
+
+        const carousel = document.getElementById('featuredCarousel');
+        const carouselInner = carousel?.querySelector('.carousel-inner');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        if (carousel && carouselInner) {
+            const itemWidth = 100;
+
+            prevBtn?.addEventListener('click', () => {
+                carouselInner.scrollBy({ left: -itemWidth * window.innerWidth / 100, behavior: 'smooth' });
+            });
+
+            nextBtn?.addEventListener('click', () => {
+                carouselInner.scrollBy({ left: itemWidth * window.innerWidth / 100, behavior: 'smooth' });
+            });
+        }
+
+        // ==========================================
+        // 4. Lazy Loading Images
+        // ==========================================
+
+        const images = document.querySelectorAll('img[data-src]');
+
+        if ('IntersectionObserver' in window) {
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        observer.unobserve(img);
+                    }
+                });
+            });
+
+            images.forEach((img) => imageObserver.observe(img));
+        }
+
+        // ==========================================
+        // 5. Load More Posts
+        // ==========================================
+
+        const loadMoreBtn = document.getElementById('loadMoreBtn');
+        const postsGrid = document.getElementById('postsGrid');
+
+        const posts = [
+            { id: 1, title: '쿠팡 와우 멤버십 3개월 70% 할인', category: '쿠폰', likes: 2500, comments: 456 },
+            { id: 2, title: '나이키 에어맥스 50% 할인', category: '패션', likes: 1800, comments: 234 },
+            { id: 3, title: 'MacBook Air M3 특가 판매', category: '전자', likes: 3200, comments: 567 },
+            { id: 4, title: '제주도 호텔 패키지 50% 할인', category: '여행', likes: 1500, comments: 289 },
+            { id: 5, title: 'LG OLED TV 77인치 특가', category: '전자', likes: 2100, comments: 378 },
+            { id: 6, title: 'UNIQLO 여름옷 세일 50% OFF', category: '패션', likes: 1900, comments: 412 },
+        ];
+
+        function renderPosts() {
+            if (!postsGrid) return;
+
+            posts.forEach((post) => {
+                const card = document.createElement('article');
+                card.className = 'post-card';
+                card.innerHTML = `
+                    <a href="/zboard/view.php?id=hotdeal&no=${post.id}" style="display: block; color: inherit; text-decoration: none;">
+                        <div class="post-image">📌</div>
+                        <div class="post-body">
+                            <span class="post-category">${post.category}</span>
+                            <h3 class="post-title">${post.title}</h3>
+                            <p class="post-excerpt">상세 내용이 여기에 표시됩니다...</p>
+                            <div class="post-meta">
+                                <span>❤️ ${post.likes}</span>
+                                <span>💬 ${post.comments}</span>
+                            </div>
+                        </div>
+                    </a>
+                `;
+                postsGrid.appendChild(card);
+            });
+        }
+
+        // Initial render
+        renderPosts();
+
+        if (loadMoreBtn) {
+            loadMoreBtn.addEventListener('click', () => {
+                renderPosts();
+                loadMoreBtn.style.opacity = '0.5';
+                loadMoreBtn.textContent = '모든 게시글을 불러왔습니다';
+                loadMoreBtn.disabled = true;
+            });
+        }
+
+        // ==========================================
+        // 6. Google Ad Manager
+        // ==========================================
+
+        window.googletag = window.googletag || { cmd: [] };
+        window.googletag.cmd.push(() => {
+            window.googletag.defineSlot('/65120695/r_banner_f', [[200, 600], [160, 600]], 'div-gpt-ad-right-banner')
+                .addService(window.googletag.pubads());
+            window.googletag.pubads().enableSingleRequest();
+            window.googletag.enableServices();
+        });
+
+        // ==========================================
+        // 7. Analytics
+        // ==========================================
+
+        // Google Analytics 4 is already loaded via script tag
+
+        // Track page views
+        if (window.gtag) {
+            window.gtag('event', 'page_view', {
+                'page_title': document.title,
+                'page_location': window.location.href
+            });
+        }
+    </script>
+</body>
+</html>
