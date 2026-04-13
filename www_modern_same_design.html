@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="author" content="PPOMPPU CO.">
+    <meta name="description"
+        content="각 쇼핑몰 핫딜 정보(네이버쇼핑, 지마켓, 쿠팡, 옥션 등), 할인 쿠폰 및 이벤트 정보, 각종 후기 정보, 휴대폰 할인 및 인터넷 가입 정보 제공">
+    <meta name="keywords" content="뽐뿌,ppomppu,핫딜,쇼핑정보,공동구매,아이폰,갤럭시,인터넷가입,최저가,재테크,렌탈">
+    <meta property="og:title" content="뽐뿌">
+    <meta property="og:description" content="사람이 좋아 함께하는 곳... 뽐뿌! 쇼핑특가, 휴대폰 정보의 중심지">
+    <meta property="og:image" content="//cdn2.ppomppu.co.kr/images/icon_app_20160427.png" />
+    <meta property="og:site_name" content="뽐뿌" />
+    <meta name="google-adsense-account" content="ca-pub-3252008906353786">
+    <title>뽐뿌 - 사람이 좋아 함께하는 곳</title>
+
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3252008906353786"
+        crossorigin="anonymous"></script>
+    <script async src='https://securepubads.g.doubleclick.net/tag/js/gpt.js'></script>
+    <script>var googletag = googletag || {}; googletag.cmd = googletag.cmd || []; var display_googletags = display_googletags || [];</script>
+
+    <!-- 기존 CSS 링크 유지 (외부 CDN) -->
+    <link rel="stylesheet" href="//cdn3.ppomppu.co.kr/css/stylesheet_newest.css?v=2026041302" />
+    <link rel="stylesheet" href="//www.ppomppu.co.kr/css/index_page_newest.css?v=2026041302" />
+
+    <link rel="shortcut icon" href="//img.ppomppu.co.kr/favicon.ico" />
+    <link rel="apple-touch-icon" href="//img.ppomppu.co.kr/images/nn128.jpeg" />
+
+    <script>
+        var G_HOME_URL = "https://www.ppomppu.co.kr";
+        var G_WWW_URL = "https://www.ppomppu.co.kr";
+        var G_WWW_REL_URL = "//www.ppomppu.co.kr";
+        var G_MOB_URL = "https://m.ppomppu.co.kr";
+        var G_MOB_REL_URL = "//m.ppomppu.co.kr";
+        var G_NIC_URL = "//nic.ppomppu.co.kr";
+        var G_MEMO_URL = "https://memo.ppomppu.co.kr";
+        var G_S_URL = "https://s.ppomppu.co.kr";
+        var G_HOME_SSL_URL = "https://www.ppomppu.co.kr";
+        var G_WWW_SSL_URL = "https://www.ppomppu.co.kr";
+        var G_MOB_SSL_URL = "https://m.ppomppu.co.kr";
+        var G_MEMO_SSL_URL = "https://memo.ppomppu.co.kr";
+        var G_S_SSL_URL = "https://s.ppomppu.co.kr";
+        var G_STATIC_URL = "//static.ppomppu.co.kr";
+        var G_IMG_URL = "//img.ppomppu.co.kr";
+        var G_CDN_URL = "//cdn2.ppomppu.co.kr";
+        var G_WWW_HREF_URL = "";
+        var G_IS_MOB = "";
+        var G_IS_DARK = "";
+        var G_HOTKEY_ENABLE = "1";
+        var G_HOTKEY_STR = "";
+        var G_SKIN_DIR = "";
+        var G_BBS_ID = "";
+        var G_IS_GUEST = 1;
+        var G_IS_GUEST_BOARD = false;
+        var G_IS_MAIN = true;
+        var CSS_PC = "2026041302";
+        var G_USE_VIEW_LIST = 0;
+    </script>
+
+    <!-- 불필요한 jQuery 플러그인들 제거 -->
+    <!-- jQuery 제거 완료:
+        - jquery-1.11.2.min.js 제거
+        - jquery-migrate-1.2.1.min.js 제거
+        - jquery.rolling.js 제거 (Vanilla JS로 대체)
+        - jquery.elipsis.js 제거
+        - jquery.lazyload.js 제거 (Intersection Observer 사용)
+        - 대신 Vanilla JavaScript만 사용
+    -->
+
+    <script src="//cdn2.ppomppu.co.kr/js/default3.js?v=2026041301"></script>
+    <script src="/js/header.js?v=2026041301"></script>
+
+    <!-- GA4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-641CFJ8BV0"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-641CFJ8BV0', { 'cookieDomain': 'ppomppu.co.kr' });
+        gtag('require', 'linkid', 'linkid.js');
+        gtag('send', 'pageview');
+    </script>
+
+    <!-- Vanilla JavaScript (jQuery 대체용) -->
+    <script>
+        // jQuery 플러그인 제거 및 Vanilla JS로 구현
+
+        // 1. Document Ready 대체
+        function domReady(callback) {
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', callback);
+            } else {
+                callback();
+            }
+        }
+
+        // 2. 간단한 유틸리티 함수들
+        const Utils = {
+            // Selector 대체
+            select: function(selector) {
+                return document.querySelector(selector);
+            },
+            selectAll: function(selector) {
+                return document.querySelectorAll(selector);
+            },
+
+            // 클래스 조작
+            addClass: function(el, className) {
+                if (el) el.classList.add(className);
+            },
+            removeClass: function(el, className) {
+                if (el) el.classList.remove(className);
+            },
+            toggleClass: function(el, className) {
+                if (el) el.classList.toggle(className);
+            },
+
+            // 이벤트 처리
+            on: function(el, event, callback) {
+                if (el) el.addEventListener(event, callback);
+            },
+
+            // 텍스트/HTML 조작
+            text: function(el, text) {
+                if (el) el.textContent = text;
+            },
+            html: function(el, html) {
+                if (el) el.innerHTML = html;
+            }
+        };
+
+        // 3. 메뉴 hover 기능 (jQuery hoverIntent 대체)
+        domReady(function() {
+            const menuItems = Utils.selectAll('.menu');
+
+            menuItems.forEach(function(menu) {
+                const parent = menu.parentElement;
+                const subMenu = parent.querySelector('.sub-menu');
+
+                if (subMenu) {
+                    let hoverTimeout;
+
+                    parent.addEventListener('mouseenter', function() {
+                        clearTimeout(hoverTimeout);
+                        Utils.addClass(parent, 'hover');
+                        subMenu.style.display = 'block';
+                    });
+
+                    parent.addEventListener('mouseleave', function() {
+                        hoverTimeout = setTimeout(function() {
+                            Utils.removeClass(parent, 'hover');
+                            subMenu.style.display = 'none';
+                        }, 200);
+                    });
+                }
+            });
+        });
+
+        // 4. 이미지 Lazy Loading (jquery.lazyload.js 대체)
+        function initLazyLoading() {
+            if ('IntersectionObserver' in window) {
+                const lazyImages = Utils.selectAll('img[data-lazy]');
+
+                const imageObserver = new IntersectionObserver(function(entries, observer) {
+                    entries.forEach(function(entry) {
+                        if (entry.isIntersecting) {
+                            const img = entry.target;
+                            img.src = img.dataset.lazy;
+                            img.removeAttribute('data-lazy');
+                            observer.unobserve(img);
+                        }
+                    });
+                });
+
+                lazyImages.forEach(function(img) {
+                    imageObserver.observe(img);
+                });
+            }
+        }
+
+        // 5. 로그 초기화
+        domReady(function() {
+            console.log('✅ jQuery 제거 완료 - Vanilla JavaScript로 동작 중');
+            console.log('📦 제거된 jQuery 플러그인:');
+            console.log('  - jquery-1.11.2.min.js');
+            console.log('  - jquery-migrate-1.2.1.min.js');
+            console.log('  - jquery.rolling.js');
+            console.log('  - jquery.lazyload.js');
+            console.log('  - jquery.elipsis.js');
+
+            initLazyLoading();
+        });
+    </script>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- Right Sidebar: Ads -->
+        <div class="sidebar">
+            <div class="floating-banner">
+                <div id="pp_ban_right" class="ad-banner" style="min-width:160px;min-height:600px;">
+                    <script>
+                        googletag.cmd.push(function () {
+                            googletag.defineSlot('/65120695/r_banner_f', [[200, 600], [160, 600]], 'r_banner_f_1').addService(googletag.pubads());
+                        });
+                    </script>
+                    <div id='r_banner_f_1' class='JS-div_gpt_ad js-ad_slot'
+                        style=' min-width:160px;min-height:600px;margin:0 auto'></div>
+                </div>
+                <div style='height:30px'></div>
+            </div><!--/.floating-banner-->
+        </div><!--/.sidebar-->
+
+        <!-- Main Content -->
+        <div class="contents">
+            <div class="contents_header_main_space off">&nbsp;</div>
+
+            <!-- Header -->
+            <div class="contents_header abs">
+                <header class="inx_header">
+                    <div class="inx_wrap">
+                        <a href="https://www.ppomppu.co.kr/index.php" class="logo">
+                            <img src="//cdn2.ppomppu.co.kr/images/logo.png" alt="뽐뿌" />
+                        </a>
+                        <span class="slogan">사람이 좋아 함께하는 곳.. 뽐뿌!</span>
+                        <form method="get" name="search1" action="https://www.ppomppu.co.kr/search_bbs.php">
+                            <div class="input-search">
+                                <input type="text" name="keyword" style="float:left;width:97%;"
+                                    placeholder="검색어를 입력하세요" />
+                            </div>
+                            <button type="submit" class="btn btn-search">검색</button>
+                        </form>
+                    </div><!--/.inx_wrap-->
+                </header><!--/.inx_header-->
+
+                <!-- Top Navigation -->
+                <nav class="top-nav inx">
+                    <ul>
+                        <!-- 뽐뿌 메뉴 -->
+                        <li class="menu01">
+                            <a href="/zboard/zboard.php?id=ppomppu" class="menu">뽐뿌</a>
+                            <div class="sub-menu">
+                                <ul>
+                                    <li class="strong"><i class="caret"></i><a href="/zboard/zboard.php?id=ppomppu">뽐뿌게시판</a></li>
+                                    <li><a href="/zboard/zboard.php?id=ppomppu2">휴대폰뽐뿌</a></li>
+                                    <li><a href="/zboard/zboard.php?id=ppomppu4">해외뽐뿌</a></li>
+                                    <li><a href="/zboard/zboard.php?id=ppomppu8">알리뽐뿌</a></li>
+                                    <li class="new"><a href="/hotdeal/">뽐뿌핫딜</a></li>
+                                    <li><a href="/zboard/zboard.php?id=pmarket">쇼핑뽐뿌</a></li>
+                                    <li class="divider strong"><a href="/zboard/zboard.php?id=pmarket2">휴대폰업체</a></li>
+                                    <li class="new"><a href="/zboard/zboard.php?id=pmarket3">인터넷가입업체</a></li>
+                                    <li><a href="/zboard/zboard.php?id=card_market">카드업체</a></li>
+                                    <li><a href="/zboard/zboard.php?id=pmarket7">렌탈업체</a></li>
+                                    <li><a href="/zboard/zboard.php?id=pmarket8">보험업체</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- 정보 메뉴 -->
+                        <li class="menu03 extand01">
+                            <a href="/recent_main_article.php?type=info" class="menu">정보</a>
+                            <i class="caret"></i>
+                            <div class="sub-menu">
+                                <ul>
+                                    <li class="title">정보</li>
+                                    <li class="strong"><i class=""></i><a href="/zboard/zboard.php?id=etc_info">이것저것공유</a></li>
+                                    <li class="new"><a href="/zboard/zboard.php?id=youtube_info">유튜브/숏폼</a></li>
+                                    <li><a href="/books/index.php">도서정보</a></li>
+                                    <li class="new"><a href="/zboard/zboard.php?id=restaurant">맛집정보</a></li>
+                                    <li><a href="/alcohol_info.php">주류정보</a></li>
+                                    <li class="divider strong"><a href="/zboard/zboard.php?id=review2">사용기</a></li>
+                                    <li><a href="/zboard/zboard.php?id=receive">구매후기</a></li>
+                                    <li class="divider"><a href="/zboard/zboard.php?id=ppomapp">앱정보</a></li>
+                                    <li><a href="/zboard/zboard.php?id=guin">구인정보</a></li>
+                                    <li class="divider strong"><a href="/fortune/index.html">무료운세</a></li>
+                                    <li class="new"><a href="/zboard/zboard.php?id=ppom_game">뽐뿌게임</a></li>
+                                </ul>
+                                <ul>
+                                    <li class="title">이벤트</li>
+                                    <li class="strong"><a href="/zboard/zboard.php?id=event2">이벤트게시판</a></li>
+                                    <li><a href="/zboard/zboard.php?id=coupon">쿠폰게시판</a></li>
+                                    <li><a href="/zboard/zboard.php?id=experience">체험단모집</a></li>
+                                    <li><a href="/zboard/zboard.php?id=wcoupon">다운로드 쿠폰</a></li>
+                                    <li class="divider strong"><a href="/zboard/zboard.php?id=event_ppomppu">뽐뿌이벤트</a></li>
+                                </ul>
+                            </div>
+                        </li>
+
+                        <!-- 커뮤니티 메뉴 -->
+                        <li class="menu04">
+                            <a href="/zboard/zboard.php?id=freeboard" class="menu">커뮤니티</a>
+                            <div class="sub-menu">
+                                <ul>
+                                    <li class="strong"><i class="caret"></i><a href="/all_bbs.php">최신글</a></li>
+                                    <li><a href="/zboard/zboard.php?id=freeboard">자유게시판</a></li>
+                                    <li class="strong new"><a href="/zboard/zboard.php?id=daily_life">일상토크</a></li>
+                                    <li class="strong"><a href="/zboard/zboard.php?id=humor">유머/감동</a></li>
+                                    <li><a href="/zboard/zboard.php?id=free_story">사진과 이야기</a></li>
+                                    <li class="divider strong"><a href="/zboard/zboard.php?id=free_gallery">사진갤러리</a></li>
+                                    <li><a href="/zboard/zboard.php?id=pet">반려동물</a></li>
+                                    <li><a href="/zboard/zboard.php?id=health">건강</a></li>
+                                    <li><a href="/zboard/zboard.php?id=stock">재테크</a></li>
+                                    <li><a href="/zboard/zboard.php?id=car">자동차</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Main Container -->
+            <div class="container">
+                <!-- Left Section: Main Content -->
+                <section class="left">
+                    <div class="topSub-nav">
+                        <div class="top-keyword">
+                            <!-- 인기 검색어 자리 -->
+                        </div>
+                    </div>
+
+                    <!-- Featured Content Section -->
+                    <div class="shopping-preview">
+                        <div class="tab-contents-container">
+                            <div class="tab-contents" id="shopping-tab1" style="display: block;">
+                                <div class="wrap">
+                                    <!-- 쇼핑 콘텐츠 -->
+                                    <h3>🛒 추천 상품</h3>
+                                    <ul>
+                                        <li><a href="#">쿠팡 와우 멤버십 70% 할인</a></li>
+                                        <li><a href="#">나이키 에어맥스 50% 특가</a></li>
+                                        <li><a href="#">Apple MacBook Air M3</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="tab-contents" id="shopping-tab2" style="display: none;">
+                                <div class="wrap">
+                                    <!-- 추가 콘텐츠 -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Articles/Posts Section -->
+                    <article class="article-section">
+                        <h2 class="section-title">최신 글</h2>
+                        <div class="article-list">
+                            <div class="article-item">
+                                <div class="article-header">
+                                    <span class="category">쇼핑</span>
+                                    <a href="#" class="article-title">핫딜 상품 정보</a>
+                                </div>
+                                <div class="article-meta">
+                                    <span class="author">작성자</span>
+                                    <span class="date">2026-04-13</span>
+                                    <span class="likes">❤️ 245</span>
+                                    <span class="comments">💬 38</span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </section>
+
+                <!-- Center Section: Additional Content (if needed) -->
+                <section class="center">
+                    <!-- 중앙 콘텐츠 -->
+                </section>
+
+                <!-- Right Section: Additional Sidebar (if needed) -->
+                <section class="right">
+                    <!-- 우측 콘텐츠 -->
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="/info/about.php">회사소개</a> |
+                <a href="/info/terms.php">이용약관</a> |
+                <a href="/info/privacy.php">개인정보처리방침</a> |
+                <a href="/info/contact.php">문의</a>
+            </div>
+            <p>&copy; 2024 PPOMPPU CO. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="/assets/bxslider/jquery.bxslider.min.js?v=2025041509"></script>
+    <script src="/js/main.js?v=2025041509"></script>
+</body>
+
+</html>
